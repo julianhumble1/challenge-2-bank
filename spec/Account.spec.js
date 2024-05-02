@@ -92,5 +92,14 @@ describe("Account Class Tests: ", () => {
             // Assert
             expect(testAccount.getBalance()).toBe(10);
         });
+
+        it("Should have a balance that stays the same when a null value is withdrawn", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            // Act
+            testAccount.withdrawMoney(null);
+            // Assert
+            expect(testAccount.getBalance()).toBe(10);
+        });
     });
 });
