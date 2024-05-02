@@ -83,5 +83,14 @@ describe("Account Class Tests: ", () => {
             // Assert
             expect(testAccount.getBalance()).toBe(10);
         });
+
+        it("Should have a balance that stays the same when a negative number is withdrawn", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            // Act
+            testAccount.withdrawMoney(-10);
+            // Assert
+            expect(testAccount.getBalance()).toBe(10);
+        });
     });
 });

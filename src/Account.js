@@ -13,6 +13,8 @@ export default class Account {
     };
 
     withdrawMoney(amount) {
-        this.#balance -= amount;
+        if (amount > 0) {
+            this.#balance -= amount;
+        }
     }
 }
