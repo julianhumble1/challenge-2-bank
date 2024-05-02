@@ -6,6 +6,6 @@ export default class Account {
     };
 
     addMoney(amount) {
-        this.#balance += amount;
+        (amount >= 0) && (this.#balance += amount);
     }
 }
