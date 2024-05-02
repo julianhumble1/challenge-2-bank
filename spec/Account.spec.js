@@ -20,6 +20,15 @@ describe("Account Class Tests", () => {
         testAccount.addMoney(10);
         // Assert
         expect(testAccount.getBalance()).toBe(10);
+    });
+
+    it("Should have a balance increase by the amount deposited when the initial balance is positive", () => {
+        // Arrange
+        testAccount.addMoney(10);
+        // Act
+        testAccount.addMoney(20);
+        // Assert
+        expect(testAccount.getBalance()).toBe(30);
     })
 
     
