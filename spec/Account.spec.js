@@ -73,6 +73,15 @@ describe("Account Class Tests: ", () => {
             testAccount.withdrawMoney(5);
             // Assert
             expect(testAccount.getBalance()).toBe(5);
-        })
+        });
+
+        it("Should have a balance that stays the same when 0 is withdrawn", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            // Act
+            testAccount.withdrawMoney(0);
+            // Assert
+            expect(testAccount.getBalance()).toBe(10);
+        });
     });
 });
