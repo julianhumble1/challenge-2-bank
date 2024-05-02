@@ -1,12 +1,12 @@
 import Account from "../src/Account.js";
 
 describe("Account Class Tests: ", () => {
-    describe("User Story 1: ", () => {
-        let testAccount;
+    let testAccount;
 
-        beforeEach(() => {
-            testAccount = new Account();
-        });
+    beforeEach(() => {
+        testAccount = new Account();
+    });
+    describe("User Story 1: ", () => {
 
         it("Should have a balance initialised to 0", () => {
             // Arrange
@@ -63,5 +63,16 @@ describe("Account Class Tests: ", () => {
             // Assert
             expect(testAccount.getBalance()).toBe(10.11);
         });
-    })
+    });
+
+    describe("User Story 2: ", () => {
+        it("Should have a balance that decreases by exactly the amount withdrawn when the starting balance is positive", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            // Act
+            testAccount.withdrawMoney(5);
+            // Assert
+            expect(testAccount.getBalance()).toBe(5);
+        })
+    });
 });

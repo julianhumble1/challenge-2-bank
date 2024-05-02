@@ -10,5 +10,9 @@ export default class Account {
             const roundedAmount = parseFloat(amount.toFixed(2))
             this.#balance += roundedAmount;
         }
+    };
+
+    withdrawMoney(amount) {
+        this.#balance -= amount;
     }
 }
