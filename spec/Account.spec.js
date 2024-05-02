@@ -48,5 +48,12 @@ describe("Account Class Tests: ", () => {
             expect(testAccount.getBalance()).toBe(0);
         });
     
+        it("Should not change the balance when null is added", () => {
+            // Arrange
+            // Act
+            testAccount.addMoney(null);
+            // Assert
+            expect(testAccount.getBalance()).toBe(0);
+        });
     })
 });
