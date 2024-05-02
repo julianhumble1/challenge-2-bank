@@ -55,5 +55,13 @@ describe("Account Class Tests: ", () => {
             // Assert
             expect(testAccount.getBalance()).toBe(0);
         });
+
+        it("Should round a number of more than 2 decimal places down to 2 dp before adding it to the balance", () => {
+            // Arrange
+            // Act
+            testAccount.addMoney(10.111);
+            // Assert
+            expect(testAccount.getBalance()).toBe(10.11);
+        });
     })
 });

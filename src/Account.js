@@ -6,6 +6,9 @@ export default class Account {
     };
 
     addMoney(amount) {
-        (amount >= 0) && (this.#balance += amount);
+        if (amount > 0) {
+            const roundedAmount = parseFloat(amount.toFixed(2))
+            this.#balance += roundedAmount;
+        }
     }
 }
