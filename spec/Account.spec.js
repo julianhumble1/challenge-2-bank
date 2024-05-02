@@ -101,5 +101,14 @@ describe("Account Class Tests: ", () => {
             // Assert
             expect(testAccount.getBalance()).toBe(10);
         });
+
+        it("Should round a number down to 2 decimal places before withdrawing it", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            // Act
+            testAccount.withdrawMoney(5.555);
+            // Assert
+            expect(testAccount.getBalance()).toBe(4.45);
+        });
     });
 });
