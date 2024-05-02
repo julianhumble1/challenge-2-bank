@@ -3,5 +3,9 @@ export default class Account {
 
     getBalance() {
         return this.#balance;
+    };
+
+    addMoney(amount) {
+        this.#balance += amount;
     }
 }
