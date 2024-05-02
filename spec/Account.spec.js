@@ -29,7 +29,14 @@ describe("Account Class Tests", () => {
         testAccount.addMoney(20);
         // Assert
         expect(testAccount.getBalance()).toBe(30);
-    })
+    });
 
+    it("Should have a balance that stays the same when 0 is added", () => {
+        // Arrange
+        // Act
+        testAccount.addMoney(0);
+        // Assert
+        expect(testAccount.getBalance()).toBe(0);
+    });
     
 });
