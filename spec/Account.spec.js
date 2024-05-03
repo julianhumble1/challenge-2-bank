@@ -116,11 +116,19 @@ describe("Account Class Tests: ", () => {
 
         it("Should have a balance that stays the same if I attempt to withdraw from an empty account", () => {
             // Arrange
-
             // Act 
             testAccount.withdrawMoney(10);
             // Assert
             expect(testAccount.getBalance()).toBe(0);
         });
+
+        it("Should have a balance that stays the same if the initial balance is positive but we try to withdraw more than the balance", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            // Act 
+            testAccount.withdrawMoney(15);
+            // Assert
+            expect(testAccount.getBalance()).toBe(10);
+        })
     })
 });
