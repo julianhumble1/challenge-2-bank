@@ -1,10 +1,12 @@
 export default class Transaction {
     #date;
     #amount;
-    
-    constructor(date, amount) {
+    #resultingBalance;
+
+    constructor(date, amount, resultingBalance) {
         this.#date = date;
         this.#amount = amount;
+        this.#resultingBalance = resultingBalance;
     }
     
     getDate() {
@@ -13,5 +15,9 @@ export default class Transaction {
 
     getAmount() {
         return this.#amount;
+    };
+
+    getResultingBalance() {
+        return this.#resultingBalance;
     }
 }
