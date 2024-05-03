@@ -27,7 +27,7 @@ describe("TransactionCreator class tests: ", () => {
             // Act
             testCredit = TransactionCreator.createCredit(testDate, testAmount, testResultingBalance);
             // Assert
-            expect(testCredit).toBeInstanceOf(Credit);
+            expect(testCredit.getDate()).toBe(testDate);
         })
     })
 })

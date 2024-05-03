@@ -131,8 +131,4 @@ describe("Account Class Tests: ", () => {
             expect(testAccount.getBalance()).toBe(10);
         });
     });
-
-    describe("User Story 4: ", () => {
-        xit("Should increase")
-    })
 });
