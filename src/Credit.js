@@ -1,11 +1,5 @@
-export default class Credit {
-    #date;
+import Transaction from "./Transaction.js";
 
-    getDate() {
-        return this.#date;
-    };
-
-    constructor(date) {
-        this.#date = date;
-    }
+export default class Credit extends Transaction {
+    
 }

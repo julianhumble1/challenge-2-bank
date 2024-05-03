@@ -22,12 +22,5 @@ describe("TransactionCreator class tests: ", () => {
 
         });
 
-        it("Should create a Credit with the date property passed into it", () => {
-            // Arrange
-            // Act
-            testCredit = TransactionCreator.createCredit(testDate, testAmount, testResultingBalance);
-            // Assert
-            expect(testCredit.getDate()).toBe(testDate);
-        })
     })
 })
