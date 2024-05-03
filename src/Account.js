@@ -13,9 +13,10 @@ export default class Account {
     };
 
     withdrawMoney(amount) {
-        if (amount > 0) {
+        if (amount > 0 && (this.#balance - amount >=0)) {
             const roundedAmount = parseFloat(amount.toFixed(2))
             this.#balance -= roundedAmount;
         }
-    }
+    };
+
 }

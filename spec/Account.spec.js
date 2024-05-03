@@ -111,4 +111,16 @@ describe("Account Class Tests: ", () => {
             expect(testAccount.getBalance()).toBe(4.45);
         });
     });
+
+    describe("User Story 3: ", () => {
+
+        it("Should have a balance that stays the same if I attempt to withdraw from an empty account", () => {
+            // Arrange
+
+            // Act 
+            testAccount.withdrawMoney(10);
+            // Assert
+            expect(testAccount.getBalance()).toBe(0);
+        });
+    })
 });
