@@ -1,4 +1,5 @@
 import Account from "../src/Account.js";
+// import TransactionCreator from "../src/TransactionCreator.js";
 
 describe("Account Class Tests: ", () => {
     let testAccount;
@@ -131,4 +132,39 @@ describe("Account Class Tests: ", () => {
             expect(testAccount.getBalance()).toBe(10);
         });
     });
+
+    describe("User Story 4: ", () => {
+        xit("Should call createCredit() when money is successfully added", () => {
+            // Arrange
+            
+            // Act 
+            // spyOn(TransactionCreator.prototype, "createCredit");
+            let testTransactionCreator = jasmine.createSpyObj("testTransactionCreator", {
+                createCredit: null
+            })
+            testAccount.addMoney(10);
+            
+            // Assert
+            expect(testTransactionCreator.createCredit).toHaveBeenCalled();
+        });
+
+        it("Should call addTransaction() when money is successfully added", () => {
+            // Arrange
+            spyOn(testAccount, "addTransaction");
+            // Act
+            const testDate = new Date(2024, 5, 4);
+            testAccount.addMoney(10, testDate);
+            // Assert
+            expect(testAccount.addTransaction).toHaveBeenCalled();
+        });
+
+        it("Should increase the length of the account's transactionList by 1 when money is successfully added", () => {
+            // Arrange
+            let expected = testAccount.getTransactionList().length + 1;
+            // Act 
+            testAccount.addMoney(10);
+            // Assert
+            expect(testAccount.getTransactionList().length).toBe(expected);
+        })
+    })
 });
