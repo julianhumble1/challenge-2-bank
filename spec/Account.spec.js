@@ -198,6 +198,17 @@ describe("Account Class Tests: ", () => {
             expect(testAccount.getTransactionList()[finalElementIndex].getDate()).toBe(testDate);
             // Cleanup
             finalElementIndex = undefined;
-        })
+        });
+
+        it("Should add an object with the expected amount property to the end of the account's transactionList", () => {
+            // Arrange
+            // Act 
+            testAccount.addMoney(10);
+            // Assert
+            let finalElementIndex = testAccount.getTransactionList().length - 1;
+            expect(testAccount.getTransactionList()[finalElementIndex].getAmount()).toBe(10);
+            // Cleanup
+            finalElementIndex = undefined;
+        });
     })
 });
