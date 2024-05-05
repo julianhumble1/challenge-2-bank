@@ -3,9 +3,13 @@ import Account from "../src/Account.js";
 
 describe("Account Class Tests: ", () => {
     let testAccount;
+    let testDate
+    let expected;
 
     beforeEach(() => {
         testAccount = new Account();
+        expected = undefined;
+        testDate = undefined;
     });
     describe("User Story 1: ", () => {
 
@@ -136,23 +140,19 @@ describe("Account Class Tests: ", () => {
     describe("User Story 4: ", () => {
         xit("Should call createCredit() when money is successfully added", () => {
             // Arrange
-            
+            spyOn(TransactionCreator.prototype, "createCredit");
             // Act 
-            // spyOn(TransactionCreator.prototype, "createCredit");
-            let testTransactionCreator = jasmine.createSpyObj("testTransactionCreator", {
-                createCredit: null
-            })
             testAccount.addMoney(10);
             
             // Assert
-            expect(testTransactionCreator.createCredit).toHaveBeenCalled();
+            expect(TransactionCreator.prototype.createCredit).toHaveBeenCalled();
         });
 
         it("Should call addTransaction() when money is successfully added", () => {
             // Arrange
             spyOn(testAccount, "addTransaction");
             // Act
-            const testDate = new Date(2024, 5, 4);
+            testDate = new Date(2024, 5, 4);
             testAccount.addMoney(10, testDate);
             // Assert
             expect(testAccount.addTransaction).toHaveBeenCalled();
@@ -160,11 +160,44 @@ describe("Account Class Tests: ", () => {
 
         it("Should increase the length of the account's transactionList by 1 when money is successfully added", () => {
             // Arrange
-            let expected = testAccount.getTransactionList().length + 1;
+            expected = testAccount.getTransactionList().length + 1;
             // Act 
             testAccount.addMoney(10);
             // Assert
             expect(testAccount.getTransactionList().length).toBe(expected);
+        })
+
+        xit("Should make the TransactionList's final element be an object with the correct amount, date and resulting balance", () => {
+            // Arrange
+            // let testCredit = { date: new Date(2000, 0, 0), amount: 10, resultingBalance: 10 };
+            let creditSpy = jasmine.createSpyObj("Credit", [], ["date", "amount", "resultingBalance"]);
+            creditSpy.date = new Date(2000, 0, 0);
+            creditSpy.amount = 10;
+            creditSpy.resultingBalance = 10;
+            // Act 
+            testAccount.addMoney(10);
+            // Assert
+            expect(testAccount.getTransactionList()[0]).toEqual(creditSpy);
+            // console.log(testCredit);
+            console.log(creditSpy.date);
+            console.log(creditSpy.amount);
+            console.log(creditSpy.resultingBalance);
+            // console.log(testAccount.getTransactionList()[0].getDate());
+            // console.log(testAccount.getTransactionList()[0].getAmount());
+            // console.log(testAccount.getTransactionList()[0].getResultingBalance());
+
+        });
+
+        it("Should add an object with the expected date property to the end of the account's transactionList", () => {
+            // Arrange
+            testDate = new Date(2024, 5, 5);
+            // Act 
+            testAccount.addMoney(10, testDate);
+            // Assert
+            let finalElementIndex = testAccount.getTransactionList().length - 1;
+            expect(testAccount.getTransactionList()[finalElementIndex].getDate()).toBe(testDate);
+            // Cleanup
+            finalElementIndex = undefined;
         })
     })
 });
