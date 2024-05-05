@@ -205,8 +205,19 @@ describe("Account Class Tests: ", () => {
             // Act 
             testAccount.addMoney(10);
             // Assert
-            let finalElementIndex = testAccount.getTransactionList().length - 1;
+            finalElementIndex = testAccount.getTransactionList().length - 1;
             expect(testAccount.getTransactionList()[finalElementIndex].getAmount()).toBe(10);
+            // Cleanup
+            finalElementIndex = undefined;
+        });
+
+        it("Should add an object with the expected resultingBalance property to the end of the account's transactionList", () => {
+            // Arrange
+            // Act 
+            testAccount.addMoney(10);
+            // Assert
+            finalElementIndex = testAccount.getTransactionList().length - 1;
+            expect(testAccount.getTransactionList()[finalElementIndex].getResultingBalance()).toBe(10);
             // Cleanup
             finalElementIndex = undefined;
         });
