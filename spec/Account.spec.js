@@ -3,13 +3,15 @@ import Account from "../src/Account.js";
 
 describe("Account Class Tests: ", () => {
     let testAccount;
-    let testDate
+    let testDate;
+    let finalElementIndex
     let expected;
 
     beforeEach(() => {
         testAccount = new Account();
         expected = undefined;
         testDate = undefined;
+        finalElementIndex = undefined;
     });
     describe("User Story 1: ", () => {
 
@@ -194,10 +196,8 @@ describe("Account Class Tests: ", () => {
             // Act 
             testAccount.addMoney(10, testDate);
             // Assert
-            let finalElementIndex = testAccount.getTransactionList().length - 1;
+            finalElementIndex = testAccount.getTransactionList().length - 1;
             expect(testAccount.getTransactionList()[finalElementIndex].getDate()).toBe(testDate);
-            // Cleanup
-            finalElementIndex = undefined;
         });
 
         it("Should add an object with the expected amount property to the end of the account's transactionList", () => {
@@ -207,8 +207,7 @@ describe("Account Class Tests: ", () => {
             // Assert
             finalElementIndex = testAccount.getTransactionList().length - 1;
             expect(testAccount.getTransactionList()[finalElementIndex].getAmount()).toBe(10);
-            // Cleanup
-            finalElementIndex = undefined;
+            
         });
 
         it("Should add an object with the expected resultingBalance property to the end of the account's transactionList", () => {
@@ -218,8 +217,6 @@ describe("Account Class Tests: ", () => {
             // Assert
             finalElementIndex = testAccount.getTransactionList().length - 1;
             expect(testAccount.getTransactionList()[finalElementIndex].getResultingBalance()).toBe(10);
-            // Cleanup
-            finalElementIndex = undefined;
         });
     })
 });
