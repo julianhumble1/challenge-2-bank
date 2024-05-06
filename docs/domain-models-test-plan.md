@@ -87,10 +87,11 @@ So that I am sure I did it
 
 TransactionCreator tests
 * Test that when I create a Debit with TransactionCreator, the resulting Debit is of type Debit
+
 Debit tests
-* Test that when I create a Debit with TransactionCreator, the resulting Debit has a date property
-* Test that when I create a Debit with TransactionCreator, the resulting Debit has an amount property
-* Test that when I create a Debit with TransactionCreator, the resulting Debit has a resulting balance property
+* Test that when I create a Debit,  the resulting Debit has the correct date property
+* Test that when I create a Debit, the resulting Debit has the correct amount property
+* Test that when I create a Debit, the resulting Debit has the correct resulting balance property
 ---
 *User Story 6:*
 As a user
