@@ -11,6 +11,7 @@ describe("TransactionCreator class tests: ", () => {
 
     afterEach(() => {
         testCredit = undefined;
+        testDebit = undefined;
     });
     
     describe("User Story 4: ", () => {
