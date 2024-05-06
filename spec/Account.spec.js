@@ -173,7 +173,7 @@ describe("Account Class Tests: ", () => {
             // Arrange
             // let testCredit = { date: new Date(2000, 0, 0), amount: 10, resultingBalance: 10 };
             let creditSpy = jasmine.createSpyObj("Credit", [], ["date", "amount", "resultingBalance"]);
-            creditSpy.date = new Date(2000, 0, 0);
+            creditSpy.date = new Date(2000, 0, 1);
             creditSpy.amount = 10;
             creditSpy.resultingBalance = 10;
             // Act 

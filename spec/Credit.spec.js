@@ -2,12 +2,14 @@ import Credit from "../src/Credit.js";
 
 describe("Credit Class Tests: ", () => {
     let testCredit;
-    let testDate = new Date(2000, 0, 0);
-    let testAmount = 10;
-    let testResultingBalance = 10;
+    let testDate = new Date(2012, 0, 10);
+    let testAmount = 1000;
+    let testResultingBalance = 1000;
+    let preparedDetails;
 
     afterEach(() => {
         testCredit = undefined;
+        preparedDetails = undefined;
     });
 
     describe("User Story 4: ", () => {
@@ -33,6 +35,18 @@ describe("Credit Class Tests: ", () => {
             testCredit = new Credit(testDate, testAmount, testResultingBalance);
             // Assert
             expect(testCredit.getResultingBalance()).toBe(testResultingBalance);
+        })
+    });
+
+    describe("User Story 6: ", () => {
+        it("Should return a string in the correct format when prepareTransactionDetails is called", () => {
+            // Arrange
+            testCredit = new Credit(testDate, testAmount, testResultingBalance);
+            let expected = "10/01/2012 || 1000.00 ||        || 1000.00"
+            // Act
+            preparedDetails = testCredit.prepareTransactionDetails();
+            // Assert
+            expect(preparedDetails).toBe(expected);
         })
     })
 })
