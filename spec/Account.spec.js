@@ -244,5 +244,16 @@ describe("Account Class Tests: ", () => {
             // Assert
             expect(testAccount.getTransactionList().length).toBe(expected);
         })
+
+        it("Should add an object with the expected date property to the end of the account's transactionList", () => {
+            // Arrange
+            testDate = new Date(2024, 5, 5);
+            testAccount.addMoney(10);
+            // Act 
+            testAccount.withdrawMoney(10, testDate);
+            // Assert
+            finalElementIndex = testAccount.getTransactionList().length - 1;
+            expect(testAccount.getTransactionList()[finalElementIndex].getDate()).toBe(testDate);
+        });
     })
 });
