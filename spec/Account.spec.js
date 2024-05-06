@@ -218,5 +218,31 @@ describe("Account Class Tests: ", () => {
             finalElementIndex = testAccount.getTransactionList().length - 1;
             expect(testAccount.getTransactionList()[finalElementIndex].getResultingBalance()).toBe(10);
         });
+    });
+    describe("User Story 5: ", () => {
+        xit("Should call createCredit() when money is successfully added", () => {
+
+        });
+
+        it("Should call addTransaction() when money is successfully withdrawn", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            spyOn(testAccount, "addTransaction");
+            // Act
+            testDate = new Date(2024, 5, 4);
+            testAccount.withdrawMoney(10, testDate);
+            // Assert
+            expect(testAccount.addTransaction).toHaveBeenCalled();
+        });
+
+        it("Should increase the length of the account's transactionList by 1 when money is successfully withdrawn", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            expected = testAccount.getTransactionList().length + 1;
+            // Act 
+            testAccount.withdrawMoney(10);
+            // Assert
+            expect(testAccount.getTransactionList().length).toBe(expected);
+        })
     })
 });
