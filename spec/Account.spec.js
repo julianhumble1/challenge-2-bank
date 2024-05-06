@@ -141,13 +141,14 @@ describe("Account Class Tests: ", () => {
 
     describe("User Story 4: ", () => {
         xit("Should call createCredit() when money is successfully added", () => {
-            // Arrange
-            spyOn(TransactionCreator.prototype, "createCredit");
-            // Act 
-            testAccount.addMoney(10);
+            //! Unable to successfully write this test using spy objects
+            // // Arrange
+            // spyOn(TransactionCreator.prototype, "createCredit");
+            // // Act 
+            // testAccount.addMoney(10);
             
-            // Assert
-            expect(TransactionCreator.prototype.createCredit).toHaveBeenCalled();
+            // // Assert
+            // expect(TransactionCreator.prototype.createCredit).toHaveBeenCalled();
         });
 
         it("Should call addTransaction() when money is successfully added", () => {
@@ -170,20 +171,22 @@ describe("Account Class Tests: ", () => {
         })
 
         xit("Should make the TransactionList's final element be an object of type Credit when money is successfully added", () => {
+            //! Unable to successfully write this test using spy objects
+
             // Arrange
             // let testCredit = { date: new Date(2000, 0, 0), amount: 10, resultingBalance: 10 };
-            let creditSpy = jasmine.createSpyObj("Credit", [], ["date", "amount", "resultingBalance"]);
-            creditSpy.date = new Date(2000, 0, 1);
-            creditSpy.amount = 10;
-            creditSpy.resultingBalance = 10;
-            // Act 
-            testAccount.addMoney(10);
-            // Assert
-            expect(testAccount.getTransactionList()[0]).toEqual(creditSpy);
-            // console.log(testCredit);
-            console.log(creditSpy.date);
-            console.log(creditSpy.amount);
-            console.log(creditSpy.resultingBalance);
+            // let creditSpy = jasmine.createSpyObj("Credit", [], ["date", "amount", "resultingBalance"]);
+            // creditSpy.date = new Date(2000, 0, 1);
+            // creditSpy.amount = 10;
+            // creditSpy.resultingBalance = 10;
+            // // Act 
+            // testAccount.addMoney(10);
+            // // Assert
+            // expect(testAccount.getTransactionList()[0]).toEqual(creditSpy);
+            // // console.log(testCredit);
+            // console.log(creditSpy.date);
+            // console.log(creditSpy.amount);
+            // console.log(creditSpy.resultingBalance);
             // console.log(testAccount.getTransactionList()[0].getDate());
             // console.log(testAccount.getTransactionList()[0].getAmount());
             // console.log(testAccount.getTransactionList()[0].getResultingBalance());
@@ -221,7 +224,7 @@ describe("Account Class Tests: ", () => {
     });
     describe("User Story 5: ", () => {
         xit("Should call createCredit() when money is successfully added", () => {
-
+            //! Unable to successfully write this test using spy objects
         });
 
         it("Should call addTransaction() when money is successfully withdrawn", () => {
@@ -246,7 +249,7 @@ describe("Account Class Tests: ", () => {
         })
 
         xit("Should make the TransactionList's final element be an object of type Debit when money is successfully withdrawn", () => {
-            
+            //! Unable to successfully write this test using spy objects
         });
 
         it("Should add an object with the expected date property to the end of the account's transactionList", () => {
