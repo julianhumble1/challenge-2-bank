@@ -13,11 +13,18 @@ describe("Debit Class Tests: ", () => {
     describe("User Story 5: ", () => {
         it("Should create a debit with the date property passed into it", () => {
             // Arrange
-
             // Act
             testDebit = new Debit(testDate, testAmount, testResultingBalance);
             // Assert
             expect(testDebit.getDate()).toBe(testDate);
+        });
+
+        it("Should create a debit with the amount property passed into it", () => {
+            // Arrange
+            // Act
+            testDebit = new Debit(testDate, testAmount, testResultingBalance);
+            // Assert
+            expect(testDebit.getAmount()).toBe(testAmount);
         })
     })
 });
