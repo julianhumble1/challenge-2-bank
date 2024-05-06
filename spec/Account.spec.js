@@ -255,5 +255,26 @@ describe("Account Class Tests: ", () => {
             finalElementIndex = testAccount.getTransactionList().length - 1;
             expect(testAccount.getTransactionList()[finalElementIndex].getDate()).toBe(testDate);
         });
+
+        it("Should add an object with the expected amount property to the end of the account's transactionList", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            // Act
+            testAccount.withdrawMoney(4);
+            // Assert
+            finalElementIndex = testAccount.getTransactionList().length - 1;
+            expect(testAccount.getTransactionList()[finalElementIndex].getAmount()).toBe(4);
+            
+        });
+
+        it("Should add an object with the expected resultingBalance property to the end of the account's transactionList", () => {
+            // Arrange
+            testAccount.addMoney(10);
+            // Act 
+            testAccount.withdrawMoney(4);
+            // Assert
+            finalElementIndex = testAccount.getTransactionList().length - 1;
+            expect(testAccount.getTransactionList()[finalElementIndex].getResultingBalance()).toBe(6);
+        });
     })
 });
