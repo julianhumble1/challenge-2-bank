@@ -169,7 +169,7 @@ describe("Account Class Tests: ", () => {
             expect(testAccount.getTransactionList().length).toBe(expected);
         })
 
-        xit("Should make the TransactionList's final element be an object with the correct amount, date and resulting balance", () => {
+        xit("Should make the TransactionList's final element be an object of type Credit when money is successfully added", () => {
             // Arrange
             // let testCredit = { date: new Date(2000, 0, 0), amount: 10, resultingBalance: 10 };
             let creditSpy = jasmine.createSpyObj("Credit", [], ["date", "amount", "resultingBalance"]);
@@ -244,6 +244,10 @@ describe("Account Class Tests: ", () => {
             // Assert
             expect(testAccount.getTransactionList().length).toBe(expected);
         })
+
+        xit("Should make the TransactionList's final element be an object of type Debit when money is successfully withdrawn", () => {
+            
+        });
 
         it("Should add an object with the expected date property to the end of the account's transactionList", () => {
             // Arrange
