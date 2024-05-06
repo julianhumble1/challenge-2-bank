@@ -25,6 +25,14 @@ describe("Debit Class Tests: ", () => {
             testDebit = new Debit(testDate, testAmount, testResultingBalance);
             // Assert
             expect(testDebit.getAmount()).toBe(testAmount);
+        });
+
+        it("Should create a debit with the resultingBalance property passed into it", () => {
+            // Arrange
+            // Act
+            testDebit = new Debit(testDate, testAmount, testResultingBalance);
+            // Assert
+            expect(testDebit.getResultingBalance()).toBe(testResultingBalance);
         })
     })
 });
